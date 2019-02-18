@@ -32,15 +32,15 @@ nombreExemplairesDoitEtreNombre = 12;
 
 // Initialisation du tableau des erreurs
 tableauErreurs = new Array(
-	"Veuillez renseigner la rŽfŽrence.",
-	"La rŽfŽrence ne doit contenir que des chiffres ou des lettres non accentuŽes, dont au moins une lettre.",
+	"Veuillez renseigner la référence.",
+	"La référence ne doit contenir que des chiffres ou des lettres non accentuées, dont au moins une lettre.",
 	"Veuillez renseigner le titre.",
 	"Veuillez renseigner l'auteur.",
-	"Veuillez renseigner l'Žditeur.",
-	"Veuillez renseigner l'Ždition.",
-	"L'Ždition doit tre un nombre.",
-	"Veuillez renseigner l'annŽe d'Ždition.",
-	"L'annŽe d'Ždition doit tre un nombre de 4 chiffres.",
+	"Veuillez renseigner l'éditeur.",
+	"Veuillez renseigner l'édition.",
+	"L'édition doit tre un nombre.",
+	"Veuillez renseigner l'année d'édition.",
+	"L'année d'édition doit tre un nombre de 4 chiffres.",
 	"Veuillez renseigner l'ISBN.",
 	"L'ISBN doit tre un nombre.",
 	"Veuillez renseigner le nombre d'exemplaires.",
@@ -62,15 +62,20 @@ function verifier(reference)
 	var longueur = reference.length;
 	var vuUneLettre = false;
 	var i;
-	var ok;
+	var ok = false;
 	var c;
 	for (i = 0; i < longueur; i++)
 	{
-		ok = false;
 		c = reference.charAt(i);
-		XXXXXXXXXXXXXXXXXXXXXXXXXXXX
-	return vuUneLettre;
+		if(c.match(/[0-9]/i))
+			ok=true
+		else if(c.match(/[A-Za-z]/i))
+			vuUneLettre = true;
+		else
+			return false
+		
 	}
+	return vuUneLettre;
 }
 
 // Affiche le resume de l'ouvrage dans le champ de meme nom
@@ -102,84 +107,88 @@ function afficherResume(ouvrage)
 // Validation et ajout d'un ouvrage
 function validation()
 {
-	var reference = new String(document.formulaire1.reference.value);
+	var reference = new String(document.getElementById("reference").value);
 	if (reference.length == 0)
 	{
-	//	aficher l'erreur corespondants
-		return;
+		afficheErreur(referenceNonRenseignee);
 	}
 
 	if (!verifier(reference))
 	{
-		
+		afficheErreur(referenceLettreRequise);		
 	}
 	
-	var titre = new String(document.formulaire1.titre.value);
+	var titre = new String(document.getElementById("titre").value);
 	if (titre.length == 0)
 	{
-		XXXXXXXXXXXXXXXXXXXXX
+		afficheErreur(titreNonRenseigne);
 	}
 	
-	var auteurs = new String(document.formulaire1.auteurs.value);
+	var auteurs = new String(document.getElementById("auteurs").value);
 	if (auteurs.length == 0)
 	{
-		XXXXXXXXXXXXXXXXXXXX
+		afficheErreur(auteursNonRenseignes);
 	}
 	
-	var editeur = new String(document.formulaire1.editeur.value);
+	var editeur = new String(document.getElementById("editeur").value);
 	if (editeur.length == 0)
 	{
-		XXXXXXXXXXXXXXXXXXX
+		afficheErreur(editeurNonRenseigne);
 	}
 	
-	var edition = new String(document.formulaire1.edition.value);
+	var edition = new String(document.getElementById("edition").value);
 	if (edition.length == 0)
 	{
-		XXXXXXXXXXXXXXXXXXXXXXX
+		afficheErreur(editionNonRenseignee);
+		
 	}
 	if (isNaN(edition))
 	{
-		XXXXXXXXXX
+		afficheErreur(editionDoitEtreNombre);
+		
 	}
 	
-	var annee = new String(document.formulaire1.annee.value);
+	var annee = new String(document.getElementById("annee").value);
 	if (annee.length == 0)
 	{
 		afficheErreur(anneeNonRenseignee);
-		return;
+		
 	}
 	if (isNaN(annee) || annee.length != 4)
 	{
-		XXXXXXXXXXXX
+		afficheErreur(3);
+		
 	}
 	
-	var isbn = new String(document.formulaire1.isbn.value);
+	var isbn = new String(document.getElementById("isbn").value);
 	if (isbn.length == 0)
 	{
-		XXXXXXXXXXXXX
+		afficheErreur(isbnNonRenseigne);
 	}
 	if (isNaN(isbn))
 	{
-		XXXXXXXXXXXXX
+		afficheErreur(isbnDoitEtreNombre);
+		
 	}
 	
-	var nombreExemplaires = new String(document.formulaire1.nombreExemplaires.value);
+	var nombreExemplaires = new String(document.getElementById("nombreExemplaires").value);
 	if (nombreExemplaires.length == 0)
 	{
 		afficheErreur(nombreExemplairesNonRenseigne);
-		return;
+		
 	}
 	if (isNaN(nombreExemplaires))
 	{
 		// Afficher Erreur Correspondante
-		return;
+		afficheErreur(isbnDoitEtreNombre);
+		
 	}
 	
 	var disponibilite = document.formulaire1.disponibilite.checked;
 	
 	var excluPret = document.formulaire1.excluPret.checked;
 	
-	var commentaires = new String(document.formulaire1.commentaires.value);
+	var commentaires = new String(document.getElementById("commentaires").value);
 	// crŽation d'un ouvrage 
 	var ouvrage = new Array();
 	ouvrage[indiceReference] = reference;
