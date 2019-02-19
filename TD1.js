@@ -106,6 +106,20 @@ function afficherResume(ouvrage)
 	document.getElementById("resume").value = resume;
 }
 
+function reset_validation(){
+	document.getElementById("reference").value = "";
+	document.getElementById("titre").value = "";
+	document.getElementById("auteurs").value = "";
+	document.getElementById("editeur").value = "";
+	document.getElementById("edition").value = "";
+	document.getElementById("annee").value = "";
+	document.getElementById("isbn").value = "";
+	document.getElementById("nombreExemplaires").value = "";
+	document.getElementById("Disponibilite").value = "";
+	document.getElementById("excluPret").value = "";
+	document.getElementById("Commentaires").value = "";
+}
+
 // Validation et ajout d'un ouvrage
 function validation()
 {
@@ -208,6 +222,6 @@ function validation()
 	nombreOuvrages++;
 	
 	afficherResume(ouvrage);
-	
+	reset_validation()
 	
 }
