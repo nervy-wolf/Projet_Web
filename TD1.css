@@ -1,7 +1,10 @@
 @charset "ISO-8859-1";
 
 body{
-	font-family: Helvetica;color: navy; background-color: white;font-size: 18px
+	font-family: Helvetica;color: navy;font-size: 18px;
+	background: url(grand_livre.jpg) no-repeat center fixed; 
+  	-webkit-background-size: cover; /* pour anciens Chrome et Safari */
+ 	 background-size: cover; /* version standardisée */
 }
 
 h1{
