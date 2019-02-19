@@ -16,47 +16,47 @@
 
 <tr>
 	<td class="texte"> Référence :  
-	<td> <input id="reference" type="text" /> </td>
+	<td> <input id="reference" type="text" class="input_court" /> </td>
 </tr>
 
 <tr>
  	<td> Titre :</td> 
- 	<td> <input id="titre" type="text" size=80/> </td> 
+ 	<td> <input id="titre" type="text" size=80 class="input_long"/> </td> 
 </tr>
 
 <tr>
 	<td> Auteur(s) : </td> 
-	<td><input id="auteurs" type="text" size=80 />  </td>
+	<td><input id="auteurs" type="text" size=80 class="input_long" />  </td>
 </tr>
 
 <tr>
 	<td> Editeur :</td> 
-	<td> <input id="editeur" type="text" /> </td>
+	<td> <input id="editeur" type="text" class="input_court" /> </td>
 </tr>
 
 <tr>
 	<td> Edition : </td>
-	<td> <input id="edition"  type="text" /> </td>
+	<td> <input id="edition"  type="text" class="input_court" /> </td>
 </tr>
 
 <tr>
  	<td> Année d'édition : </td>
- 	<td> <input id="annee" type="text" /> </td>
+ 	<td> <input id="annee" type="text" class="input_court" /> </td>
 </tr>
 
 <tr>
 	<td> ISBN : </td><td> 
-	<input id="isbn"  type="text" /> </td>
+	<input id="isbn"  type="text" class="input_court" /> </td>
 </tr>
 
 <tr>
 	<td> Nombre d'exemplaires : </td>
-	<td> <input id="nombreExemplaires" type="text" /> </td>
+	<td> <input id="nombreExemplaires" type="text" class="input_court" /> </td>
 </tr>
 
 <tr>
-	<td> Disponibilité : </td>
-	<td> <input id="Disponibilite" type="checkbox" /> </td>
+	<td> Disponibilité :</td>
+	<td><input id="Disponibilite" type="checkbox" /> </td>
 </tr>
 
 <tr>
@@ -66,8 +66,17 @@
 
 <tr>
 	<td> Commentaires : </td>
-	<td> <input id="Commentaires" type="text" /> </td>
+	<td> </td>
+		
 </tr>
+
+<tr>
+	
+	<td>  <textarea class="zone_commentaire" id="Commentaires"> </textarea>  </td>
+	<td></td>
+		
+</tr>
+
 
 <tr>
 	<td> <input class="bouton1" type="button" value="Valider la saisie" onclick="validation()">
@@ -75,7 +84,7 @@
 </tr>
 
 <tr>
-	<td colspan="4"> <textarea id="resume" name="resume" rows="11" cols="79"> </textarea>
+	<td colspan="4"> <textarea id="resume" class="zone_commentaire2"> </textarea>
 	<td>
 </tr>
 

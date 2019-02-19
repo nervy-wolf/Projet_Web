@@ -81,7 +81,8 @@ function verifier(reference)
 // Affiche le resume de l'ouvrage dans le champ de meme nom
 function afficherResume(ouvrage)
 {
-	var resume = ouvrage[indiceReference] + "\n" + 
+	var resume = "RESUME :" + "\n" + 
+		ouvrage[indiceReference] + "\n" + 
 		ouvrage[indiceTitre] + "\n" + 
 		ouvrage[indiceAuteurs] + "\n" +
 //completer
