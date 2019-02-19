@@ -10,79 +10,78 @@
 
 <body  >
 
-<form id="formulaire1" class="cadre">
+<form class="cadre">
 <h1 > Formulaire de saisie d'un ouvrage </h1>
 <table> 
 
 <tr>
 	<td class="texte"> Référence :  
-	<td> <input id="reference" name="reference" type="text" /> </td>
+	<td> <input id="reference" type="text" /> </td>
 </tr>
 
 <tr>
  	<td> Titre :</td> 
- 	<td> <input id="titre" name="titre"  type="text" size=80/> </td> 
+ 	<td> <input id="titre" type="text" size=80/> </td> 
 </tr>
 
 <tr>
 	<td> Auteur(s) : </td> 
-	<td > <input id="auteurs" name="auteurs" type="text" size=80 />  </td>
+	<td><input id="auteurs" type="text" size=80 />  </td>
 </tr>
 
 <tr>
 	<td> Editeur :</td> 
-	<td> <input id="editeur" name="editeur" type="text" /> </td>
+	<td> <input id="editeur" type="text" /> </td>
 </tr>
 
 <tr>
 	<td> Edition : </td>
-	<td> <input id="edition" name="edition" type="text" /> </td>
+	<td> <input id="edition"  type="text" /> </td>
 </tr>
 
 <tr>
  	<td> Année d'édition : </td>
- 	<td> <input id="annee" name="annee" type="text" /> </td>
+ 	<td> <input id="annee" type="text" /> </td>
 </tr>
 
 <tr>
 	<td> ISBN : </td><td> 
-	<input id="isbn" name="isbn" type="text" /> </td>
+	<input id="isbn"  type="text" /> </td>
 </tr>
 
 <tr>
 	<td> Nombre d'exemplaires : </td>
-	<td> <input id="nombreExemplaires" name="nombreExemplaires" type="text" /> </td>
+	<td> <input id="nombreExemplaires" type="text" /> </td>
 </tr>
 
 <tr>
 	<td> Disponibilité : </td>
-	<td> <input id="Disponibilite" name="disponibilite" type="checkbox" /> </td>
+	<td> <input id="Disponibilite" type="checkbox" /> </td>
 </tr>
 
 <tr>
 	<td> Exclu du prêt : </td>
-	<td> <input id="excluPret" name="excluPret" type="checkbox" /> </td>
+	<td> <input id="excluPret" type="checkbox" /> </td>
 </tr>
 
 <tr>
 	<td> Commentaires : </td>
-	<td> <input id="Commentaires" name="commentaires" type="text" /> </td>
+	<td> <input id="Commentaires" type="text" /> </td>
 </tr>
 
 <tr>
 	<td> <input class="bouton1" type="button" value="Valider la saisie" onclick="validation()">
-	<td> <input class="bouton2" type="button" value="Annulation" onclick="document.formulaire1.reset()">
+	<td> <input class="bouton2" type="button" value="Annulation" onclick="this.form.reset()">
 </tr>
 
 <tr>
-	<td colspan="4"> <textarea name="resume" rows="11" cols="79" disabled>  </textarea>
+	<td colspan="4"> <textarea id="resume" name="resume" rows="11" cols="79"> </textarea>
 	<td>
 </tr>
 
 </table>
 
 </form>
-
 </body>
 
 </html>

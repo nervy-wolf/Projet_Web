@@ -85,6 +85,7 @@ function afficherResume(ouvrage)
 		ouvrage[indiceTitre] + "\n" + 
 		ouvrage[indiceAuteurs] + "\n" +
 //completer
+		ouvrage[indiceEditeur] + "\n" +
 		ouvrage[indiceEdition] + "\n" + 
 		ouvrage[indiceAnnee] + "\n" +
 		ouvrage[indiceIsbn] + "\n" + 
@@ -95,13 +96,13 @@ function afficherResume(ouvrage)
 		disponibilite = "Disponible";
 	}
 	resume = resume + disponibilite + "\n";
-	var excluPret = "AutorisŽ au prt";
+	var excluPret = "Autorisé au prêt";
 	if (ouvrage[indiceExcluPret])
 	{
 		excluPret = "Exclu du prêt";
 	}
 	resume = resume + excluPret + "\n" + ouvrage[indiceCommentaires];
-	document.formulaire1.resume.value = resume;
+	document.getElementById("resume").value = resume;
 }
 
 // Validation et ajout d'un ouvrage
@@ -110,92 +111,102 @@ function validation()
 	var reference = new String(document.getElementById("reference").value);
 	if (reference.length == 0)
 	{
-		afficheErreur(referenceNonRenseignee);
+		return afficheErreur(referenceNonRenseignee);
 	}
 
 	if (!verifier(reference))
 	{
-		afficheErreur(referenceLettreRequise);		
+		return afficheErreur(referenceLettreRequise);		
 	}
 	
 	var titre = new String(document.getElementById("titre").value);
 	if (titre.length == 0)
 	{
-		afficheErreur(titreNonRenseigne);
+		return afficheErreur(titreNonRenseigne);
 	}
 	
 	var auteurs = new String(document.getElementById("auteurs").value);
 	if (auteurs.length == 0)
 	{
-		afficheErreur(auteursNonRenseignes);
+		return afficheErreur(auteursNonRenseignes);
 	}
-	
+
 	var editeur = new String(document.getElementById("editeur").value);
 	if (editeur.length == 0)
 	{
-		afficheErreur(editeurNonRenseigne);
+		return afficheErreur(editeurNonRenseigne);
 	}
 	
 	var edition = new String(document.getElementById("edition").value);
 	if (edition.length == 0)
 	{
-		afficheErreur(editionNonRenseignee);
+		return afficheErreur(editionNonRenseignee);
 		
 	}
 	if (isNaN(edition))
 	{
-		afficheErreur(editionDoitEtreNombre);
+		return afficheErreur(editionDoitEtreNombre);
 		
 	}
 	
 	var annee = new String(document.getElementById("annee").value);
 	if (annee.length == 0)
 	{
-		afficheErreur(anneeNonRenseignee);
+		return afficheErreur(anneeNonRenseignee);
 		
 	}
 	if (isNaN(annee) || annee.length != 4)
 	{
-		afficheErreur(3);
+		return afficheErreur(anneeDoitEtreNombre4Chiffres);
 		
 	}
 	
 	var isbn = new String(document.getElementById("isbn").value);
 	if (isbn.length == 0)
 	{
-		afficheErreur(isbnNonRenseigne);
+		return afficheErreur(isbnNonRenseigne);
 	}
 	if (isNaN(isbn))
 	{
-		afficheErreur(isbnDoitEtreNombre);
+		return afficheErreur(isbnDoitEtreNombre);
 		
 	}
 	
 	var nombreExemplaires = new String(document.getElementById("nombreExemplaires").value);
 	if (nombreExemplaires.length == 0)
 	{
-		afficheErreur(nombreExemplairesNonRenseigne);
+		return afficheErreur(nombreExemplairesNonRenseigne);
 		
 	}
 	if (isNaN(nombreExemplaires))
 	{
 		// Afficher Erreur Correspondante
-		afficheErreur(isbnDoitEtreNombre);
+		return afficheErreur(isbnDoitEtreNombre);
 		
 	}
-	
-	var disponibilite = document.formulaire1.disponibilite.checked;
-	
-	var excluPret = document.formulaire1.excluPret.checked;
-	
-	var commentaires = new String(document.getElementById("commentaires").value);
+
+	var disponibilite = document.getElementById("Disponibilite").checked;
+	var excluPret = document.getElementById("excluPret").checked;
+	var commentaires = new String(document.getElementById("Commentaires").value);
 	// crŽation d'un ouvrage 
+	
 	var ouvrage = new Array();
 	ouvrage[indiceReference] = reference;
 	// Completer l'ouvrage
-
+	ouvrage[indiceTitre] = titre;
+	ouvrage[indiceAuteurs] = auteurs;
+	ouvrage[indiceEditeur] = editeur;
+	ouvrage[indiceEdition] = edition;
+	ouvrage[indiceAnnee] = annee;
+	ouvrage[indiceIsbn] = isbn;
+	ouvrage[indiceNombreExemplaires] = nombreExemplaires;
+	ouvrage[indiceDisponibilite] = disponibilite;
+	ouvrage[indiceExcluPret] = excluPret;
+	ouvrage[indiceCommentaires] = commentaires;
 	ouvrages[nombreOuvrages] = ouvrage;
 	nombreOuvrages++;
-
+	
 	afficherResume(ouvrage);
+	
+	
 }
