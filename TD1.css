@@ -8,10 +8,25 @@ body{
 }
 
 h1{
-	font-size: 30px ; color: blue; font-weight: bold; allign: right
+	font-size: 30px ; color: blue; font-weight: bold; allign: right; text-align: center;
 }
 
-.cadre  {margin: 10; width:48%; background-color:silver; border: 2px solid navy;font-size: 14px; opacity: 0.9}
+b
+{
+	text-decoration:underline;
+	margin-left: 5px;	
+	margin-right: 5px;
+
+	}
+
+
+
+.cadre {
+	width:48%; background-color:silver; border: 2px solid navy;font-size: 14px; opacity: 0.9;
+	margin-left: auto;
+  margin-right: auto;
+ 
+	}
 
 .bouton1{
 	margin-left: 10%;
@@ -30,7 +45,7 @@ h1{
 }
 
 .input_court{
-	width: 30%;
+	width: 40%;
 }
 
 .input_long{
